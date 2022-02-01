@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Kolker+Brush&display=swap');
 
 html {
   box-sizing: border-box;
@@ -10,6 +10,7 @@ body {
   overflow-y: hidden;
   display: flex;
   align-items: center;
+  font-family: Kolker Brush, sans-serif;
 
 }
 
@@ -35,7 +36,7 @@ video {
   top: 0;
   height: 100vh;
   width: 100vw;
-  background: rgba(255, 255, 255, 0.65)
+  background: rgba(255, 255, 255, 0.35)
 }
 
 /* Container */
@@ -49,7 +50,7 @@ video {
   z-index: 2;
   display: flex;
   justify-content: center;
-
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .input-container {
@@ -82,7 +83,7 @@ input {
   border-radius: 20px;
   background: #fff;
   outline: none;
-
+  font-family: Chewy, sans-serif;
 }
 
 /* Button */
@@ -97,6 +98,11 @@ button {
   color: white;
   cursor: pointer;
   outline: none;
+  
+}
+
+button:hover {
+  filter: brightness(110%);
 }
 
 
@@ -107,7 +113,7 @@ ul {
 }
 
 li {
-
+  display: inline-block;
   font-size: 30px;
   list-style-type: none;
   padding: 10px;
@@ -126,6 +132,29 @@ li span {
   top: 60px;
 }
 
+.complete-title {
+  animation: complete 4s infinite;
+}
+
+@keyframes complete {
+0% {
+  color:rgb(20, 20, 128);
+} 
+25% {
+  color:rgb(245, 245, 9);
+}
+50% {
+  color:rgb(12, 148, 5);
+  transform: scale(2.0);
+}
+75% {
+  color:rgb(242, 8, 8);
+}
+100% {
+  color:rgb(133, 8, 242);
+} 
+}
+
 
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
@@ -141,7 +170,8 @@ li span {
   }
 
   .container {
-
+    min-width: unset;
+    width: 95vw;
     min-height: 245px;
     padding: 20px;
     margin: 10px;
