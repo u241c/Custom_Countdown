@@ -10,6 +10,7 @@ const timeElements = document.querySelectorAll('span');
 let countdownTitle = '';
 let countdownDate = '';
 let countdownValue = Date;
+let countdownActive ;
 
 const second = 1000;
 const minute = second * 60;
@@ -22,7 +23,8 @@ dateEl.setAttribute('min', today);
 
 // Populate Countdown / Complete UI
 function updateDOM() {
-    const now = new Date().getTime();
+    countdownActive = setInterval(() => {
+        const now = new Date().getTime();
     const distance = countdownValue - now;
     console.log('distance', distance);
 
@@ -44,6 +46,7 @@ function updateDOM() {
     inputContainer.hidden = true;
     // Show Countdown
     countdownEl.hidden = false;
+    }, second);
 }
 
 // Take Values from Form Input
