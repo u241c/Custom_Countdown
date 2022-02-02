@@ -55,11 +55,29 @@ function updateCountdown(e){
     countdownTitle = e.srcElement[0].value;
     countdownDate = e.srcElement[1].value;
     console.log(countdownTitle, countdownDate);
+    // Check for valid date
+    if (countdownDate === '') {
+        alert('yadayada');
+    }else{
     // Get number version of current Date, updateDOM
     countdownValue = new Date(countdownDate).getTime();
     console.log('countdown value:', countdownValue);
     updateDOM();
+    }
+}
+
+// Reset All Values
+function reset() {
+    // Hide Countdowns, show Input
+    countdownEl.hidden = true;
+    inputContainer.hidden = false;
+    // Stop the countdown
+    clearInterval(countdownActive);
+    // Reset values
+    countdownTitle = '';
+    countdownDate = '';
 }
 
 // Event Listeners
 countdownForm.addEventListener('submit', updateCountdown);
+countdownElBtn.addEventListener('click', reset);
